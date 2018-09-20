@@ -214,7 +214,7 @@ Yourneys details
 User model
  
 ```
-user: String
+user: String // backlog
 email: String (required)
 password: String (required)
 
