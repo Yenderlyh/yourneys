@@ -125,6 +125,9 @@ Yourneys details
 
 - GET /profile
   - renders the profile details
+  
+- GET /yourney?city=<cityName>
+  - renders the yourney list for <cityName>
 
 - GET /yourney/create
   - renders the create form
