@@ -9,29 +9,33 @@ Yourneys is a platform for travelers to discover cities through customized journ
 
 - **404** - As a user I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault 
 - **500** - As a user I want to see a nice error page when the super team screws it up so that I know that is not my fault
-- **start-page** - As a user I want to be able to access the homepage so that I see what the app is about and login or signup
 - **sign up** - As a user I want to sign up on the webpage so that I can see all the Yourney or create a new Yourney
 - **login** - As a user I want to be able to log in on the webpage so that I can get back to my account
 - **logout** - As a user I want to be able to log out from the webpage in case other user wants to log in
-- **Homepage** - As I user I want to be able to start searching Yourneys for a city right away, see some suggestions for the most visited cities to inspire my next trip, access my profile page and navegate easily among sections (explore, search, add yourney, favorites and go back to home)
-- **profile-tab** - As I user I want to be able to edit my personal info, access messages and log out
-- **profile** - As I user I want to be able to see my profile details, my upcoming yourneys (and delete them), the ones I've done and the ones I've created
-- **explore** - As I user I want to be able to see suggestions to inspire me, like the last added yourneys and the top rated yourneys
-- **search** - As I user I want to be able to filter yourneys in a city, with different criteria (date, interest...)
-- **create-yourney** - As I user I want to be able to create and edit yourneys for other users (and delete them)
-- **favorites** - As I user I want to be able to see yourneys I've marked as favorites
+- **Homepage-cities** - As I user I want to be able to see all the cities so that I can find Yourneys in that cities
+- **yourneys** - As I user I want to be able to see yourneys so that I can choose one
+- **add-yourney** - As I user I want to be able to add a yourney so that I make the journey later
+- **profile-upcoming-yourneys** -my upcoming yourneys
+- **create-yourney** - As I user I want to be able to create and edit yourneys for other users
 
 ## MVP
 
 - Homepage
-- Create profile, edit it
-- Create Yourney
+- Sign Up
+- Display Yourneys
 - Add Yourney
-- Search for Yourneys
+- Create Yourney
+
 
 ## Backlog
+Onboarding:
+- **onboarding-page** - As a user I want to be able to access the onboarding page so that I see what the app is about
 
 User profile:
+- **profile** - As I user I want to be able to see my profile details
+- **profile** -I've done
+- **profile** -I've created
+- **profile** -delete yourneys I've created
 - upload my profile picture
 - see other users profile
 - list of upcoming yourneys
@@ -47,9 +51,12 @@ Geo Location:
 Explore
 - filter latest/new yourneys
 - display top rated yourneys
+- **explore** - As I user I want to be able to see suggestions to inspire me, like the last added yourneys and the top rated yourneys
 
 Search
+- filter cities on the homepage
 - add filters for interest...
+- **search** - As I user I want to be able to filter yourneys in a city, with different criteria (date, interest...)
 
 Create
 - upload images
@@ -214,7 +221,7 @@ Yourneys details
 User model
  
 ```
-user: String // backlog
+username: String // backlog
 email: String (required)
 password: String (required)
 
@@ -232,16 +239,6 @@ tags: String (enum: food, party, adventure, cultural, wandering, sports, shoppin
 
 ``` 
 
-Search model
-
-```
-
-location: String (required)
-date: Date
-days: Number
-interests: String (enum: food, party, adventure, cultural, wandering, sports, shopping, music)
-
-``` 
 
 ## Links
 
