@@ -202,7 +202,7 @@ Yourneys details
     - date
     - days
     - interests
-  - redirects to /yourneys/location
+  - redirects to /yourneys/results
   - validation
     - check required fields 
     - if data is valid = redirect to /yourneys and show filtered yourneys
