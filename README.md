@@ -14,6 +14,7 @@ Yourneys is a platform for travelers to discover cities through customized journ
 - **logout** - As a user I want to be able to log out from the webpage in case other user wants to log in
 - **Homepage-cities** - As I user I want to be able to see all the cities so that I can find Yourneys in that cities
 - **yourneys** - As I user I want to be able to see yourneys so that I can choose one
+- **yourney-details** - As I user I want to be able to see what the yourney is about
 - **add-yourney** - As I user I want to be able to add a yourney so that I make the journey later
 - **profile-upcoming-yourneys** -my upcoming yourneys
 - **create-yourney** - As I user I want to be able to create and edit yourneys for other users
@@ -115,6 +116,7 @@ Yourneys details
 
 - POST /auth/logout
   - body: (empty)
+  - removes user from sesion
   - redirect to /auth/login
 
 - GET / 
@@ -123,16 +125,6 @@ Yourneys details
 
 - GET /profile
   - renders the profile details
-
-- GET /profile/edit
-  - renders the profile details + create form
-
-- POST /profile/edit
-  - renders the profile details + create form
-  - body:
-    - profile pic
-    - username
-    - description
 
 - GET /yourney/create
   - renders the create form
@@ -145,7 +137,6 @@ Yourneys details
     - location
     - date
     - days
-    - tags
   - validation
     - check required fields 
     - if data is valid = create a new yourney and redirect to /yourney/:id
@@ -153,68 +144,23 @@ Yourneys details
 
 - GET /yourney/:id
   - redirects to /auth/login if user is anonymous
-  - renders the yourney detail page
   - validation
     - id is !valid (next to 404)
     - id !exists (next to 404)
-  - renders the event detail page
+  - renders the yourney detail page
+    - shows the add button if not the owner
 
-
-- GET /yourney/:id/edit
+- POST /yourney/:id/add
   - redirects to /auth/login if user is anonymous
-  - redirects to /yourney/:id if user is not owner
-  - renders the yourney detail page + the create form
-
-- POST /yourney/:id/edit
-  - redirects to /auth/login if user is anonymous
-  - body: 
-    - name
-    - description
-    - location
-    - date
-    - days
-    - tags
+  - body:
   - validation
-    - check required fields 
-    - if data is valid = create a new yourney and redirect to /yourney/:id
-    - if data is invalid = create an error message and redirect to /yourney/:id/edit
-
-- POST /yourney/:id/delete
-  - redirects to /auth/login if user is anonymous
-  - body: (empty)
-  - validation
-    - id is !valid (redirects to current page if user access from a yourneys list - or previous page if user access form /yourney/:id)
-    - id !exists (redirects to current page if user access from a yourneys list - or previous page if user access form /yourney/:id) || (next to 404) ********
-  - deletes the yourney
-  - redirects to current page
-
-- POST /yourney/:id/select
-  - redirects to /auth/login if user is anonymous
-  - body: (empty)
-  - redirects to current page
-  - validation
-    - check if is already selected 
-    - if selected = flash message "already in your list"
-    - if !selected = add to user's list and flash message "yourney added"
-
-
-- GET /search
-  - redirects to /auth/login if user is anonymous
-  - renders the search form
-
-- POST /search
-  - redirects to /auth/login if user is anonymous
-  - body: 
-    - location
-    - date
-    - days
-    - interests
-  - redirects to /yourneys/results
-  - validation
-    - check required fields 
-    - if data is valid = redirect to /yourneys and show filtered yourneys
-    - if data is invalid = create an error message and redirect to /search
-
+    - id is !valid (next to 404)
+    - NOTE: findById to perform next validations
+      - id !exists (next to 404)
+      - check if is already added 
+      - if added = flash message "already in your list"
+  - add to user's list [use findAndUpdate] and flash message "yourney added"
+  - redirect to /profile
 
 ## Models
 
@@ -230,11 +176,16 @@ password: String (required)
 Yourney model
 
 ```
+owner: ObjectId (user)
 name: String (required)
 description: String (required)
 location: String (required)
 date: Date
 days: Number (required)
+addedBy: [ObjectId (user)]
+// not MVP
+doneBy: [ObjectId (user)]
+favoritedBy: [ObjectId (user)]
 tags: String (enum: food, party, adventure, cultural, wandering, sports, shopping, music) (required)
 
 ``` 
