@@ -123,9 +123,9 @@ Yourneys details
 - POST /profile/edit
   - renders the profile details + create form
   - body:
+    - profile pic
     - username
     - description
-    - profile pic
 
 - GET /yourney/create
   - renders the create form
@@ -263,3 +263,9 @@ The url to your presentation slides
 
 [Slides Link](http://slides.com)
 
+
+## Wireframes
+ 
+![Yourneys wireframes][wireframes]
+
+[wireframes]: https://github.com/MJHRhacker/yourneys/blob/master/YOURNEYS%20wireframes%20Overview.png
