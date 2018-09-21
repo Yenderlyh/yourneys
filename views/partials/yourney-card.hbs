@@ -1,0 +1,29 @@
+<article>
+  <div>
+    <div>
+      <h3>{{this.name}}</h3>
+      <p>Created by <a href="#">{{this.owner}}</a></p>
+      <p>{{this.days}}</p>
+      {{#if this.date}}
+        <p>{{this.date}}</p>
+      {{/if}}
+    </div>
+    <div>
+      <div>
+        <button type="submit" class="icon icon-heart"></button>
+        <button type="submit" class="icon icon-share"></button>
+      </div>
+      {{#if}}
+        <button type="submit" class="button">Add</button>
+      {{/if}}
+      {{#else this.addedBy}}
+      <button type="submit" class="button">Added</button>
+      {{/else}}
+      {{#if this.owner}}
+      <button type="submit" class="button">Edit</button>
+      {{/if}}
+    </div>
+  </div>
+  <p>{{this.snippet}}</p>
+  <a href="#">+</a>
+</article>
