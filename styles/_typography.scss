@@ -1,0 +1,38 @@
+body {
+  background-color: $color-bg;
+  color: $color-fg;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 147%;
+}
+
+a {
+  color: $color-link;
+}
+
+
+
+h1 {
+  font-size: 59px;
+  line-height: 36px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+h3 {}
+
+p {
+  margin: 6px 12px;
+}
+
+// use with @include inverse()
+@mixin inverse() {
+  color: $color-inverse-fg;
+  background-color: $color-inverse-bg;
+
+  a {
+    color: $color-inverse-link;
+  }
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Yourneys</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/style-icon.css' />
+  </head>
+  <body>
+    {{>header}}
+    {{{body}}}
+    {{>navbar}}
+  {{#if currentUser}}
+  <p>
+    Logged in as: {{currentUser.email}}
+    <form method="POST" action="/auth/logout">
+      <button type="submit">Log Out</button>
+    </form>
+  </p>
+  {{/if}}
+  </body>
+</html>

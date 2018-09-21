@@ -1,0 +1,57 @@
+// --- header
+
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 30px 50px;
+  width: 100%;
+
+  h1 {
+    flex: 1;
+
+    a {
+      text-decoration: none;
+      color: #222;
+    }
+  }
+
+  .profile-nav {
+    flex: 1;
+    text-align: right;
+  
+    img {
+      width: 30%;
+    }
+  }
+}
+
+// --- nav-bar
+
+.nav-bar {
+  background-color: #fff;
+  text-align: center;
+  padding: 34px 0;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  li {
+    display: inline;
+    flex: 1;
+
+    a {
+      font-size: 80px;
+    }
+
+    .icon {
+      text-decoration: none;
+      color: #222;
+    }
+  }
+}
