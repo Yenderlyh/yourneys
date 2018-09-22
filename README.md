@@ -198,7 +198,7 @@ tags: String (enum: food, party, adventure, cultural, wandering, sports, shoppin
 
 ### Trello
 
-[Link to your trello board](https://trello.com) or picture of your physical board
+[Link to your trello board](https://trello.com/b/82m4gamv/yourneys)
 
 ### Git
 
