@@ -6,13 +6,16 @@
     "start": "node ./bin/www",
     "start-dev": "nodemon ./bin/www",
     "sass": "node-sass --output-style compressed --source-map true styles/style.scss public/stylesheets/style.css",
-    "sass-watch": "nodemon -e js,json,hbs ./bin/www | node-sass --output-style compressed --source-map true --watch styles/style.scss public/stylesheets/style.css"  },
+    "sass-watch": "nodemon -e js,json,hbs ./bin/www | node-sass --output-style compressed --source-map true --watch styles/style.scss public/stylesheets/style.css",
+    "seed-yourney": "node ./bin/seed/yourney.js"
+  },
   "dependencies": {
     "bcrypt": "^3.0.0",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^2.0.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
+    "dotenv": "^6.0.0",
     "express": "~4.16.0",
     "express-session": "^1.15.6",
     "hbs": "~4.0.1",

@@ -1,1 +1,39 @@
-<p>Welcome to</p>
+<h2>Yourneys</h2>
+
+{{!-- {{yourneys}} --}}
+
+{{!-- <ul class="yourney-list">
+  {{#each yourneys}}
+    <li>{{>yourneycard}}</li>
+  {{/each}}
+</ul> --}}
+
+<ul>
+  {{#each yourneys}}
+    <li>
+      <div>
+        <h3>{{this.name}}</h3>
+        <p>Created by <a href="#">{{this.owner}}</a></p>
+        <p>Days: {{this.days}}</p>
+        {{#if this.date}}
+        <p>Date: {{this.date}}</p>
+        {{/if}}
+        <p>{{this.snippet}}</p>
+        <a href="#">+</a>
+        <button type="submit" class="icon icon-heart"></button>
+        <button type="submit" class="icon icon-share"></button>
+        <button type="submit" class="button">Add</button>
+        {{#if this.addedBy}}
+          <button type="submit" class="button">Added</button>
+        {{/if}}
+        {{#if this.owner}}
+          <button type="submit" class="button">Edit</button>
+        {{/if}} 
+        {{!-- WHYYYYY --}}
+        {{else}}
+        <p class="empty">No content</p>
+      </div>
+    </li>
+  {{/each}}
+</ul>
+

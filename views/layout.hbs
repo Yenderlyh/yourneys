@@ -15,7 +15,7 @@
     {{/if}}
     {{#if currentUser}}
       <p>
-        Logged in as: {{currentUser.email}}
+        Logged in as: {{currentUser.username}}
         <form method="POST" action="/auth/logout">
           <button type="submit">Log Out</button>
         </form>

@@ -1,0 +1,45 @@
+<form method="POST" action="/auth/signup">
+  <div class="field">
+    <label></label>
+    <input type="text" name="name" value="{{fields.name}}" placeholder="New yourney" />
+  </div>
+
+  <div class="field">
+    <label>Snippet</label>
+    <input type="text" name="snippet" placeholder="In one sentence describe your yourney" value="{{fields.snippet}}" />
+  </div>
+
+  <div class="field">
+    <label>Description</label>
+    <input type="text" name="description" value="{{fields.description}}"/>
+  </div>
+
+  <div class="field">
+    <label>Location</label>
+    <input type="text" name="location" placeholder="Barcelona" value="{{fields.location}}"/>
+  </div>
+
+  <div class="field">
+    <label>Date</label>
+    <input type="date" name="date"/>
+  </div>
+
+  <div class="field">
+    <label>Days</label>
+    <select name="days"> 
+      <option value="value1">1</option>
+      <option value="value2">2</option>
+      <option value="value3">3</option>
+      <option value="value4">4</option>
+      <option value="value5">5+</option>
+    </select>
+  </div>
+
+  <div class="field submit">
+    <button type="submit">Create</button>
+  </div>
+  {{#if message}}
+  <p class="validation">{{message}}</p>
+  {{/if}}
+
+</form>

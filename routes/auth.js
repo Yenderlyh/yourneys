@@ -23,24 +23,24 @@ router.post('/signup', (req, res, next) => {
   if (req.session.currentUser) {
     return res.redirect('/')
   }
-  const { email, password } = req.body
-  if (!email || !password) {
-    req.flash('signup-form-error', 'email and password are mandatory!')
-    req.flash('signup-form-data', { email, password })
+  const { username, password } = req.body
+  if (!username || !password) {
+    req.flash('signup-form-error', 'username and password are mandatory!')
+    req.flash('signup-form-data', { username, password })
     return res.redirect('/auth/signup')
   }
 
-  User.findOne({ email })
+  User.findOne({ username })
     .then((result) => {
       if (result) {
-        req.flash('signup-error', 'email already taken')
-        req.flash('signup-data', { email })
+        req.flash('signup-error', 'username already taken')
+        req.flash('signup-data', { username })
         return res.redirect('/auth/signup')
       }
       const salt = bcrypt.genSaltSync(saltRounds)
       const hashedPassword = bcrypt.hashSync(password, salt)
 
-      const user = new User({ email, password: hashedPassword })
+      const user = new User({ username, password: hashedPassword })
       return user.save()
         .then(() => {
           req.session.currentUser = user
@@ -67,12 +67,12 @@ router.post('/login', (req, res, next) => {
   if (req.session.currentUser) {
     return res.redirect('/')
   }
-  const { email, password } = req.body
-  if (!email || !password) {
-    req.flash('login-error', 'email and password are mandatory!')
+  const { username, password } = req.body
+  if (!username || !password) {
+    req.flash('login-error', 'username and password are mandatory!')
     return res.redirect('/auth/login')
   }
-  User.findOne({ email })
+  User.findOne({ username })
     .then((result) => {
       if (!result) {
         req.flash('login-error', 'User doesn\'t exist')

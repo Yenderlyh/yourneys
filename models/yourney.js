@@ -33,12 +33,15 @@ const yourneySchema = new Schema({
     enum: ['1', '2', '3', '4', '5+'],
     required: true
   },
+  dayOne: {
+    type: String
+  },
   addedBy: {
     type: ObjectId,
     ref: 'User'
   }
 })
 
-const Yourney = mongoose.model('yourney', yourneySchema)
+const Yourney = mongoose.model('Yourney', yourneySchema)
 
 module.exports = Yourney
